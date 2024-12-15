@@ -17,14 +17,17 @@ int binaryconv(char *s)
 
 void handle_signal(int sig) 
 {
-    static char *binary;
+    static char binary[8];
     static int i = 0;
     if (sig == SIGUSR1)
         binary[i++] = '1';
     else if (sig == SIGUSR2)
         binary[i++] = '0';
     if (i == 8)
+    {
+        printf("%c", binaryconv(binary));
         i = 0;
+    }
 }
 
 int main()
@@ -33,10 +36,10 @@ int main()
     signal(SIGUSR1, handle_signal);
     signal(SIGUSR2, handle_signal);
     int i = 0;
+    char s[8] = "\0";
     while (1)
     {
         pause();
-        char s[8] = "\0";
  
     }
     return 0;

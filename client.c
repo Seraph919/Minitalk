@@ -50,7 +50,7 @@ int main(int ac, char **av)
                 else
                     kill(PID, SIGUSR1);
                 binary[index] = d + '0';
-                usleep(500000);
+                usleep(50);
             }
             printf("\n------------^^^---------\n");
             printf("The %%c of the binary above is : %c", binaryconv(binary));
