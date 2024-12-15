@@ -2,44 +2,44 @@
 
 void foo(int sig)
 {
+    (void) sig;
     return;
 }
 void foo2(int sig)
 {
+    (void) sig;
     return;
 }
 int main(int ac, char **av)
 {
     int d;
+    int n = 0;
+    int i = 7;
+
     if (ac == 3)
     {
-        char binary[8] = "\0";
         int PID = atoi(av[1]);
         signal(SIGUSR1, foo);
         signal(SIGUSR2, foo2);
-
-        (void) ac;
-        for (int k = 2; av[k]; k++)
+        while(av[2][n])
         {
-            for (int n = 0; av[k][n]; n++)
+            while (i >= 0)
             {
-                for (int i = 7, index = 0; i >= 0, index < 8; i--, index++)
+                d = (av[2][n] >> i) & 1;
+                if (d == 0)
                 {
-                    d = (av[k][n] >> i) & 1;
-                    if (d == 0)
-                    {
-                        kill(PID, SIGUSR2);
-                        printf("THE SIGUSR2 HAS BEEN SENT TO %d\n", PID);
-                    }
-                    else
-                    {
-                        kill(PID, SIGUSR1);
-                        printf("THE SIGUSR1 HAS BEEN SENT TO %d\n", PID);
-                    }
-                    binary[index] = d + '0';
-                    usleep(100);
+                    kill(PID, SIGUSR2);
+                    printf("THE SIGUSR2 HAS BEEN SENT TO %d\n", PID);
                 }
+                else
+                {
+                    kill(PID, SIGUSR1);
+                    printf("THE SIGUSR1 HAS BEEN SENT TO %d\n", PID);
+                }
+                usleep(100);
+                i--;
             }
+            n++;
         }
     }
 }
