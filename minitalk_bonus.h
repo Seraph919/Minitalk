@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 13:58:53 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 15:29:46 by asoudani         ###   ########.fr       */
+/*   Created: 2024/12/16 15:28:32 by asoudani          #+#    #+#             */
+/*   Updated: 2024/12/16 15:29:52 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_H
 
 #include <stdio.h>
 #include <stdlib.h>
