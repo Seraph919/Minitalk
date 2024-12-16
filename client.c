@@ -3,7 +3,7 @@
 void foo(int sig)
 {
     (void) sig;
-    return;
+    printf("confirmed!");
 }
 void foo2(int sig)
 {
@@ -14,7 +14,7 @@ int main(int ac, char **av)
 {
     int d;
     int n = 0;
-    int i = 7;
+    int i;
 
     if (ac == 3)
     {
@@ -23,18 +23,19 @@ int main(int ac, char **av)
         signal(SIGUSR2, foo2);
         while(av[2][n])
         {
+            i = 7;
             while (i >= 0)
             {
                 d = (av[2][n] >> i) & 1;
                 if (d == 0)
                 {
                     kill(PID, SIGUSR2);
-                    printf("THE SIGUSR2 HAS BEEN SENT TO %d\n", PID);
+                    printf("THE BIT 0 HAS BEEN SENT TO %d\n", PID);
                 }
                 else
                 {
                     kill(PID, SIGUSR1);
-                    printf("THE SIGUSR1 HAS BEEN SENT TO %d\n", PID);
+                    printf("THE BIT 1 HAS BEEN SENT TO %d\n", PID);
                 }
                 usleep(100);
                 i--;

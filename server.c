@@ -13,8 +13,7 @@ void handle_signal(int sig)
     count++;
     if (count == 8)
     {
-        printf("%c", c);
-        fflush(stdout);
+        ft_printf("%c", c);
         count = 0;
         c = 0;
     }
@@ -22,7 +21,7 @@ void handle_signal(int sig)
 
 int main()
 {
-    printf("The server's running with PID: %d\n", getpid());
+    ft_printf("The server's running with PID: %d\n", getpid());
     signal(SIGUSR1, handle_signal);
     signal(SIGUSR2, handle_signal);
     while (1)

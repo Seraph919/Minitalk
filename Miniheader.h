@@ -6,4 +6,6 @@
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include "./ft_printf/ft_printf.h"
+
 #endif
