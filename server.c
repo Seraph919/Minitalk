@@ -1,4 +1,16 @@
-#include "Miniheader.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/16 13:58:47 by asoudani          #+#    #+#             */
+/*   Updated: 2024/12/16 14:16:16 by asoudani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minitalk.h"
 
 void handle_signal(int sig) 
 {
@@ -13,7 +25,7 @@ void handle_signal(int sig)
     count++;
     if (count == 8)
     {
-        ft_printf("%c", c);
+        ft_putchar(c);
         count = 0;
         c = 0;
     }
@@ -21,7 +33,9 @@ void handle_signal(int sig)
 
 int main()
 {
-    ft_printf("The server's running with PID: %d\n", getpid());
+    ft_putstr("The server's running with PID: ");
+    ft_putnbr(getpid());
+    ft_putchar('\n');
     signal(SIGUSR1, handle_signal);
     signal(SIGUSR2, handle_signal);
     while (1)

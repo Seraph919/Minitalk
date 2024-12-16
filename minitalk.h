@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   Miniheader.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 18:27:59 by asoudani          #+#    #+#             */
-/*   Updated: 2024/11/14 21:16:20 by asoudani         ###   ########.fr       */
+/*   Created: 2024/12/16 13:58:53 by asoudani          #+#    #+#             */
+/*   Updated: 2024/12/16 14:09:15 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	ft_putchar_fd(char c, int fd, int *n)
-{
-	if (write(fd, &c, 1) == -1)
-		return (-1);
-	*n += 1;
-	return (1);
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/wait.h>
+
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
+void	ft_putnbr(int nb);
+void    foo(int sig);
+void    foo2(int sig);
+
+
+#endif

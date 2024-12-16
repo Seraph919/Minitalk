@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_char.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 21:21:10 by asoudani          #+#    #+#             */
-/*   Updated: 2024/11/17 21:21:50 by asoudani         ###   ########.fr       */
+/*   Created: 2024/12/16 13:52:48 by asoudani          #+#    #+#             */
+/*   Updated: 2024/12/16 14:09:26 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "minitalk.h"
 
-int	check_char(char c)
+void	ft_putnbr(int nb)
 {
-	int		i;
-	char	*a;
+	long	i;
+	long	n;
 
-	i = 0;
-	a = "cspdiuxX%";
-	while (a[i])
+	i = 1;
+	n = nb;
+	if (n < 0)
 	{
-		if (a[i] == c)
-			return (1);
-		i++;
+		ft_putchar('-');
+		n *= -1;
 	}
-	return (0);
+	if (n == 0)
+	{
+		ft_putchar('0');
+		return ;
+	}
+	while (i * 10 <= n)
+	{
+		i *= 10;
+	}
+	while (i > 0)
+	{
+		ft_putchar((n / i) + '0');
+		n %= i;
+		i /= 10;
+	}
 }

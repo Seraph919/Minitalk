@@ -1,9 +1,22 @@
-#include "Miniheader.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/16 13:59:05 by asoudani          #+#    #+#             */
+/*   Updated: 2024/12/16 14:16:35 by asoudani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minitalk.h"
 
 void foo(int sig)
 {
     (void) sig;
-    printf("confirmed!");
+    ft_putstr("confirmed!");
+    ft_putchar('\n');
 }
 void foo2(int sig)
 {
@@ -30,12 +43,16 @@ int main(int ac, char **av)
                 if (d == 0)
                 {
                     kill(PID, SIGUSR2);
-                    printf("THE BIT 0 HAS BEEN SENT TO %d\n", PID);
+                    ft_putstr("THE BIT 0 HAS BEEN SENT TO ");
+                    ft_putnbr(PID);
+                    ft_putchar('\n');
                 }
                 else
                 {
                     kill(PID, SIGUSR1);
-                    printf("THE BIT 1 HAS BEEN SENT TO %d\n", PID);
+                    ft_putstr("THE BIT 1 HAS BEEN SENT TO ");
+                    ft_putnbr(PID);
+                    ft_putchar('\n');
                 }
                 usleep(100);
                 i--;
