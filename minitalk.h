@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:58:53 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 15:29:46 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/16 22:19:45 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putnbr(int nb);
-void    foo(int sig);
+int	    ft_atoi(const char *str);
+void    signal_handler(int sig);
 void    handle_signal(int sig);
-void    foo(int sig);
-
+void    signal_handler2(int sig);
 
 #endif
+

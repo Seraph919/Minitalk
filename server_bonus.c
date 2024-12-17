@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:27:30 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 15:28:55 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/16 22:08:40 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ void handle_signal(int sig)
         n = 0;
     c = c << 1 | n;
     count++;
+    usleep(1);
     if (count == 8)
     {
         ft_putchar(c);
         count = 0;
         c = 0;
+        usleep(1);
     }
 }
 

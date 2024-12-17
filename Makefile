@@ -1,4 +1,4 @@
-SRC = ft_putchar.c ft_putnbr.c ft_putstr.c
+SRC = ft_putchar.c ft_putnbr.c ft_putstr.c ft_atoi.c
 CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
 NAME = minitalk.a
@@ -22,3 +22,5 @@ fclean : clean
 	rm -f $(NAME) 
 
 re : fclean all
+
+.PHONY : clean

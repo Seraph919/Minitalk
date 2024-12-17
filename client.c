@@ -6,28 +6,30 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:59:05 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 15:05:12 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/16 22:19:53 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void foo(int sig)
+void signal_handler(int sig)
 {
     (void) sig;
-    ft_putstr("Your Message has been recieved and printed successfully!\n");
 }
 int main(int ac, char **av)
 {
     int d;
     int n = 0;
     int i;
+    int PID;
 
+    struct sigaction sa = {0};
+    sa.sa_handler = signal_handler;
+    sigaction(SIGUSR1, &sa, NULL);
+    sigaction(SIGUSR2, &sa, NULL);
     if (ac == 3)
     {
-        int PID = atoi(av[1]);
-        signal(SIGUSR1, foo);
-        signal(SIGUSR2, foo);
+        PID = ft_atoi(av[1]);
         while(av[2][n])
         {
             i = 7;
@@ -35,23 +37,18 @@ int main(int ac, char **av)
             {
                 d = (av[2][n] >> i) & 1;
                 if (d == 0)
-                {
                     kill(PID, SIGUSR2);
-                    ft_putstr("THE BIT 0 HAS BEEN SENT TO ");
-                    ft_putnbr(PID);
-                    ft_putchar('\n');
-                }
                 else
-                {
                     kill(PID, SIGUSR1);
-                    ft_putstr("THE BIT 1 HAS BEEN SENT TO ");
-                    ft_putnbr(PID);
-                    ft_putchar('\n');
-                }
-                usleep(100);
+                usleep(77);
                 i--;
             }
             n++;
         }
     }
 }
+
+/*
+./client 35859 "👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_��_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!./client6701👋_🆕_❤️_🆓_⚒️_=_Welcome_to_your_new_favorite_free_tool!2wqw1./client6701👋_w"
+
+*/
