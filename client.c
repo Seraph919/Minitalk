@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:59:05 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 22:19:53 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:36:31 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int ac, char **av)
     sa.sa_handler = signal_handler;
     sigaction(SIGUSR1, &sa, NULL);
     sigaction(SIGUSR2, &sa, NULL);
+    sa.sa_flags = SA_SIGINFO;
     if (ac == 3)
     {
         PID = ft_atoi(av[1]);

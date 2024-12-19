@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:58:53 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 22:19:45 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:28:52 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
-#include <sys/wait.h>
+#include <bits/sigaction.h>
 
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
