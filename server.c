@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:58:47 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/20 18:00:14 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:29:49 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int main()
     ft_putstr("The server's running with PID: ");
     ft_putnbr(getpid());
     ft_putchar('\n');
-    signal(SIGUSR1, handle_signal);
-    signal(SIGUSR2, handle_signal);
+    if (signal(SIGUSR1, handle_signal) == SIG_ERR)
+        exit(-1);
+    if (signal(SIGUSR2, handle_signal) == SIG_ERR)
+        exit(-1);
     while (1)
     {
     }

@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:27:41 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/20 18:25:26 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:44:12 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ void handle_signal(int sig)
     (void) sig;
     if (sig == SIGUSR1)
     {
-        ft_putstr("\033[0;32m");
+        // ft_putstr("\033[0;32m");
         ft_putstr("SIGUSR1 has been recieved (aka '1')\n");
-        ft_putstr("\033[0m");
+        // ft_putstr("\033[0m");
     }
     if (sig == SIGUSR2)
     {
-        ft_putstr("\033[0;31m");
+        // ft_putstr("\033[0;31m");
         ft_putstr("SIGUSR2 has been recieved (aka '0')\n");
-        ft_putstr("\033[0m");
+        // ft_putstr("\033[0m");
     }
 }
 int main(int ac, char **av)
@@ -53,7 +53,7 @@ int main(int ac, char **av)
                 {
                     kill(PID, SIGUSR1);
                 }
-                usleep(80); // !60 !70 !100
+                usleep(150); // !60 !70 !100 !111
                 i--;
             }
             n++;
