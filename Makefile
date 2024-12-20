@@ -1,4 +1,4 @@
-SRC = ft_putchar.c ft_putnbr.c ft_putstr.c ft_atoi.c
+SRC = ./src/ft_putchar.c ./src/ft_putnbr.c ./src/ft_putstr.c ./src/ft_atoi.c
 CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
 NAME = minitalk.a

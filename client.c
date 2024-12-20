@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:59:05 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/20 16:16:06 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:03:23 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int ac, char **av)
                     kill(PID, SIGUSR2);
                 else
                     kill(PID, SIGUSR1);
-                usleep(77);
+                usleep(60); // 50 micro s causes garbage value sometimes..
                 i--;
             }
             n++;

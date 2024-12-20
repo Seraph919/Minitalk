@@ -6,11 +6,11 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:27:59 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 14:11:15 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:04:58 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../minitalk.h"
 
 void	ft_putchar(char c)
 {

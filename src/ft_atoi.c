@@ -6,11 +6,11 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 22:17:55 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/16 22:18:17 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:04:51 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../minitalk.h"
 
 int	ft_atoi(const char *str)
 {
