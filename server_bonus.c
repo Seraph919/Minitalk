@@ -6,13 +6,13 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:27:30 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/19 18:25:52 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:38:38 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
 
-void handler(int sig, siginfo_t *info, void *context) 
+void sigaction_handler(int sig, siginfo_t *info, void *context) 
 {
     int n;
     (void)context;
@@ -38,6 +38,14 @@ void handler(int sig, siginfo_t *info, void *context)
     }
 }
 
+void sigtstp_handler(int sig)
+{
+    (void) sig;
+    ft_putstr("\033[0m");
+    ft_putstr("\nThe process has Successfully been ");
+    kill(getpid(), SIGKILL);
+}
+
 int main()
 {
     ft_putstr("\033[0;33m");
@@ -46,12 +54,13 @@ int main()
     ft_putnbr(getpid());
     ft_putchar('\n');
     ft_putstr("\033[0;32m");
-    struct sigaction sa = {0};
-    sa.sa_flags = SA_SIGINFO;
-    sa.sa_sigaction = handler;
-    sigemptyset(&sa.sa_mask);
-    sigaction(SIGUSR1, &sa, NULL);
-    sigaction(SIGUSR2, &sa, NULL);
+    struct sigaction action = {0};
+    action.sa_flags = SA_SIGINFO;
+    action.sa_sigaction = sigaction_handler;
+    sigemptyset(&action.sa_mask);
+    sigaction(SIGUSR1, &action, NULL);
+    sigaction(SIGUSR2, &action, NULL);
+    signal(SIGTSTP, sigtstp_handler);
     while (1)
     {
     }
