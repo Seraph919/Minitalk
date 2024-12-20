@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:27:30 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/20 16:38:38 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:22:37 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void sigaction_handler(int sig, siginfo_t *info, void *context)
     }
 }
 
-void sigtstp_handler(int sig)
-{
-    (void) sig;
-    ft_putstr("\033[0m");
-    ft_putstr("\nThe process has Successfully been ");
-    kill(getpid(), SIGKILL);
-}
+// void sigtstp_handler(int sig)
+// {
+//     (void) sig;
+//     ft_putstr("\033[0m");
+//     ft_putstr("\nThe process has Successfully been ");
+//     kill(getpid(), SIGKILL);
+// }
 
 int main()
 {
@@ -60,7 +60,7 @@ int main()
     sigemptyset(&action.sa_mask);
     sigaction(SIGUSR1, &action, NULL);
     sigaction(SIGUSR2, &action, NULL);
-    signal(SIGTSTP, sigtstp_handler);
+    // signal(SIGTSTP, sigtstp_handler);
     while (1)
     {
     }

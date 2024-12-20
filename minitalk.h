@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:58:53 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/20 18:06:14 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:07:31 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,3 @@ void	ft_putnbr(int nb);
 int	    ft_atoi(const char *str);
 
 #endif
-
