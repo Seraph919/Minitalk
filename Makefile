@@ -6,8 +6,8 @@ NAME = minitalk.a
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar -rcs $(NAME) $(?)
-	cc $(CFLAGS) server.c $(NAME) -o server 
+	ar -rcs $(NAME) $(OBJ)
+	cc $(CFLAGS) server.c $(NAME) -o server
 	cc $(CFLAGS) client.c $(NAME) -o client
 
 bonus :	$(OBJ)
@@ -19,7 +19,7 @@ clean :
 	rm -f $(OBJ) server client server_bonus client_bonus
 
 fclean : clean
-	rm -f $(NAME) 
+	rm -f $(NAME)
 
 re : fclean all
 
