@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:27:41 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/21 21:58:47 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:42:17 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	handle_signal(int sig)
 {
-	(void) sig;
 	if (sig == SIGUSR1)
 	{
 		ft_putstr("\033[0;32m");
@@ -29,11 +28,13 @@ void	handle_signal(int sig)
 	}
 }
 
-static void	_while(char *s, int n, int prc_id)
+static void	binary_sender(char *s, int prc_id)
 {
 	int		d;
 	int		i;
+	int		n;
 
+	n = 0;
 	while (s[n])
 	{
 		i = 7;
@@ -55,19 +56,25 @@ static void	_while(char *s, int n, int prc_id)
 
 int	main(int ac, char **av)
 {
-	int					n;
 	int					prc_id;
 	struct sigaction	action;
 
 	if (ac == 3)
 	{
-		n = 0;
 		prc_id = atoi(av[1]);
+		sigemptyset(&action.sa_mask);
+		action.sa_flags = 0;
 		action.sa_handler = handle_signal;
 		if (sigaction(SIGUSR1, &action, NULL) == -1)
 			exit(-1);
 		if (sigaction(SIGUSR2, &action, NULL) == -1)
 			exit(-1);
-		_while(av[2], n, prc_id);
+		binary_sender(av[2], prc_id);
+	}
+	if (ac != 3)
+	{
+		ft_putstr("\033[0;31mPlease enter the correct paramiters :\n");
+		ft_putstr("\033[0m./client\033[0;32m <PID> \033[0m""text""\n");
+		exit(-1);
 	}
 }

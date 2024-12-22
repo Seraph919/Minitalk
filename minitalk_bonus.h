@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:28:32 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/21 22:14:51 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:22:46 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <signal.h>
+# include <stdio.h>
 
 void	ft_putchar(char c);
 void	ft_putstr(char *s);

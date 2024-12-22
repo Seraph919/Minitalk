@@ -6,7 +6,7 @@
 /*   By: asoudani <asoudani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:27:30 by asoudani          #+#    #+#             */
-/*   Updated: 2024/12/22 09:50:03 by asoudani         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:56:48 by asoudani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,22 @@ int	main(void)
 {
 	struct sigaction	action;
 
-	ft_putstr("\033[0;33m");
-	ft_putstr("\n███╗   ███╗██╗███╗   ██╗██╗████████╗ █████╗ ██╗     ██╗  ██╗\n"
-		"████╗ ████║██║████╗  ██║██║╚══██╔══╝██╔══██╗██║     ██║ ██╔╝\n"
-		"██╔████╔██║██║██╔██╗ ██║██║   ██║   ███████║██║     █████╔╝\n"
-		"██║╚██╔╝██║██║██║╚██╗██║██║   ██║   ██╔══██║██║     ██╔═██╗\n"
-		"██║ ╚═╝ ██║██║██║ ╚████║██║   ██║   ██║  ██║███████╗██║  ██╗\n"
-		"╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝\n");
-	ft_putstr("____________ The server's running with PID: ");
+	ft_putstr("\033[0;31m\n
+		"███╗   ███╗        ██████╗  ██████╗ ███╗   ██╗██╗   ██╗███████╗\n"
+		"████╗ ████║        ██╔══██╗██╔═══██╗████╗  ██║██║   ██║██╔════╝\n"
+		"██╔████╔██║        ██████╔╝██║   ██║██╔██╗ ██║██║   ██║███████╗\n"
+		"██║╚██╔╝██║        ██╔══██╗██║   ██║██║╚██╗██║██║   ██║╚════██║\n"
+		"██║ ╚═╝ ██║███████╗██████╔╝╚██████╔╝██║ ╚████║╚██████╔╝███████║\n"
+		"╚═╝     ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝\n");
+	ft_putstr("_____________________ The server's running with PID: \033[0m");
 	ft_putnbr(getpid());
-	ft_putstr(" ____________\n");
-	ft_putstr("\033[0m");
+	ft_putstr("\033[0;31m _____________________\n");
+	ft_putstr("\033[0m ");
 	action.sa_flags = SA_SIGINFO;
-	action.sa_sigaction = sigaction_handler;
 	sigemptyset(&action.sa_mask);
-	if (sigaction(SIGUSR1, &action, NULL) == -1)
-		exit(-1);
-	if (sigaction(SIGUSR2, &action, NULL) == -1)
-		exit(-1);
+	action.sa_sigaction = sigaction_handler;
+	sigaction(SIGUSR1, &action, NULL);
+	sigaction(SIGUSR2, &action, NULL);
 	while (1)
 	{
 	}
