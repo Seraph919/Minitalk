@@ -14,10 +14,16 @@ It’s a project designed to teach you how processes can send and receive messag
 First, the communication relies on the two signals: SIGUSR1 and SIGUSR2; a string (received in input) is sent from the client to the server, after the process is ended the message will be printed from the server, also the client aknowledges the end of the task. First the server must be executed, it will print its PID; then we can run the client giving it two arguments:
     - the server PID
     - the message to send (double quotes for multiple words)
-![server](https://github.com/user-attachments/assets/ded59305-9f1f-401d-87a1-17a95b642034)
-It is possible to send multiple messages in different calls without stopping the server.
-![client](https://github.com/user-attachments/assets/c196d29c-f0b3-48d1-8cf2-bb2dafb6f00a)
 
+<div style="text-align: center;">
+  <img src="https://github.com/user-attachments/assets/c196d29c-f0b3-48d1-8cf2-bb2dafb6f00a" alt="Centered cient"/>
+</div>
+
+<div style="text-align: center;">
+  <img src="https://github.com/user-attachments/assets/ded59305-9f1f-401d-87a1-17a95b642034" alt="Centered server"/>
+</div>
+
+It is possible to send multiple messages in different calls without stopping the server.
 # Structure
 - **sources/**   -->  source files:
                           - client.c
